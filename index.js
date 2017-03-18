@@ -1,18 +1,23 @@
+var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
 
-var Book = require('./models/Book');
-var User = require('./models/User');
-var Issue = require('./models/Issue');
+// Attach body parser
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.configure(function () {
-    app.use(express.log('dev'));
-    app.use(express.bodyParser());
-});
+// Routes
+var book_routes = require('./routes/book_routes');
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/library');
 
 app.get('/', function (req, res) {
-    res.send('Something');
+    res.send("Something")
 });
+
+app.use('/book', book_routes);
 
 app.listen(3000, function () {
     console.log('Running at port 3000...');

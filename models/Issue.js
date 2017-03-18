@@ -1,13 +1,12 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/library');
 
 var issueSchema = new mongoose.Schema({
     book_id: {
-        type: ObjectId,
+        type: mongoose.Schema.ObjectId,
         required: true
     },
     user_id: {
-        type: ObjectId,
+        type: mongoose.Schema.ObjectId,
         required: true
     },
     issue_date: {

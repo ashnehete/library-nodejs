@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/library');
 
 var userSchema = new mongoose.Schema({
     name: {
@@ -16,6 +15,18 @@ var userSchema = new mongoose.Schema({
         required: true
     }
 });
+
+userSchema.statics.findByUsername = function (username, callback) {
+    return this.find({username: username}, callback);
+};
+
+userSchema.statics.findByName = function (name, callback) {
+    return this.find({name: new RegExp(name, 'gi')}, callback);
+};
+
+userSchema.statics.login = function (username, password, callback) {
+    return this.find({username: username, password: password}, callback);
+};
 
 var User = mongoose.model('User', userSchema);
 
