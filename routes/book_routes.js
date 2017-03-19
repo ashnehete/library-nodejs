@@ -24,12 +24,41 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-    res.send(req.body.title);
+    var book = new Book(req.body);
+    book.save(function (err) {
+        if (err) {
+            return res.send(err);
+        }
+        res.send({message: 'Book added.'});
+    })
+});
+
+router.post('/:id', function (req, res) {
+    Book.findById(req.params.id, function (err, book) {
+        if (err) {
+            return res.send(err);
+        }
+        for (prop in req.body) {
+            book[prop] = req.body[prop];
+        }
+
+        book.save(function (err) {
+            if (err) {
+                return res.send(err);
+            }
+
+            res.send({message: 'Book updated.'})
+        })
+    })
 });
 
 function resCb(err, data) {
     if (err) this.res.send(err);
     this.res.json(data);
+}
+
+function errorMessage(message) {
+    return {'error': message};
 }
 
 module.exports = router;
