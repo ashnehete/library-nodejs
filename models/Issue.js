@@ -23,11 +23,11 @@ var issueSchema = new mongoose.Schema({
     }
 });
 
-bookSchema.statics.findByUser = function (user_id, callback) {
+issueSchema.statics.findByUser = function (user_id, callback) {
     return this.find({user_id: user_id}, callback);
 };
 
-bookSchema.statics.findByBook = function (book_id, callback) {
+issueSchema.statics.findByBook = function (book_id, callback) {
     return this.find({book_id: book_id}, callback);
 };
 
