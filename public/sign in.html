@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Signup</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .navbar {
+            margin-bottom: 0px;
+        }
+        
+        .boxstyle {
+            background-color: transparent;
+            font-family: sans-serif;
+            font-weight: bold;
+            border-bottom-style: solid;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+            border-color: black;
+            outline: none;
+        }
+        
+        body {
+            background: url('img/8.jpg') fixed;
+            background-size: cover;
+            background-position: center;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .font {
+            font-family: lithograph;
+            color: black;
+            font-weight: bold;
+        }
+        
+        ::-webkit-input-placeholder {
+            color: black;
+        }
+        
+        .submitbox {
+            padding: 5px 15px;
+            background: green;
+            color: white;
+            font: bold 15px arial, sans-serif;
+        }
+    </style>
+    <script type="text/javascript">
+        function validateform() {
+            var name = document.myform.name.value;
+            var username = document.myform.username.value;
+            var password = document.myform.password.value;
+            var cpassword = document.myform.cpassword.value;
+            var ck_name = /^[A-Za-z_]{2,20}$/;
+            var ck_username = /^[a-z0-9_]{3,20}$/;
+            var ck_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+            if (!ck_username.test(username)) {
+                alert("enter valid username");
+                return false;
+            }
+            else if (!ck_password.test(password)) {
+                alert("enter valid password");
+                return false;
+            }
+            else if (password != cpassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            else
+                return true;
+        }
+    </script>
+</head>
+
+<body>
+    <header class="header-3">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><img src="img/liblogo.jpg" width="230" height="64"></li>
+                    <li><a href="lib_man_sys.html">Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Collection</a></li>
+                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">About</a></li>
+                    <li>
+                        <a href="#"><input type="text" button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>library@gmail.com</a></li>
+                    <li class="active"><a href="sign in.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="login.htm"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br><br><br><br><br><br>
+        <div align="center">
+            <h1 class="font">Sign Up</h1>
+        </div>
+        <div align="center">
+            <form name="myform" method="post" onsubmit="return validateform()">
+                <input type="text" placeholder="Name" name="name" class="boxstyle">
+                <br>
+                <br>
+                <input type="text" placeholder="Username" name="username" class="boxstyle">
+                <br>
+                <br>
+                <input type="password" placeholder="Password" name="password" class="boxstyle">
+                <br>
+                <br>
+                <input type="password" placeholder="Confirm Password" name="cpassword" class="boxstyle">
+                <br>
+                <br>
+                <input type="submit" name="submit" class="submitbox">
+            </form>
+        </div>
+    </header>
+</body>

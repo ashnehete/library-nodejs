@@ -1,0 +1,106 @@
+<html lang="en">
+
+<head>
+    <title>
+        BOOKS
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header class="header-3">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><img src="img/liblogo.jpg" width="230" height="64"></li>
+                    <li><a href="lib_man_sys.html">Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Collection</a></li>
+                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#">Books</a></li>
+                    <li><a href="#">About</a></li>
+                    <li>
+                        <a href="#"><input type="text" button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>library@gmail.com</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <table class="table" border="2">
+                <thead>
+                    <tr>
+                        <td align="center">
+                            <div class="alert alert-info">
+                                <strong>BOOK SEARCH</strong>
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <form>
+
+                                <label>Author:</label>
+                                <input type="text" id="Author">
+                                <br>
+
+                                <input type="radio" name="fname" value="firstname">Words in last or first name
+                                <input type="radio" name="lname" value="lastname">Exact start of name(last name first)
+                                <br><br>
+
+                                <label>Title:</label>
+                                <input type="text" id="Title">
+                                <br>
+                                <input type="radio" name="words" value="wordsintitle">Words in Title
+                                <input type="radio" name="start" value="startoftitle">Exact start of Title('The','a'&'an'can
+                                be omitted)
+                                <br>
+                                <input type="checkbox" name="abc" value="includeextendedshelves">Include extended shelves
+                                <br><br>
+                                <button type="button" class="btn btn-success" id="OK"> Search</button>&nbsp&nbsp
+                                <button type="button" class="btn btn-danger" id="cancel">Clear the Form</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Examples:</h3><br>
+                            <ul>
+                                <li>
+                                    <p>Entering austen,jane in the Author field finds book by Jane Austen.</p>
+                                </li>
+                                <li>
+                                    <p>Entering Baum in the Author field and oz in the Title field finds L.Frank Baum's Oz books.</p>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+</body>
+
+</html>
