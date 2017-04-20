@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/user.js"></script>
     <style>
         .navbar {
             margin-bottom: 0px;
@@ -29,7 +30,7 @@
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <li><img src="img/liblogo.jpg" width="230" height="64"></li>
-                    <li><a href="lib_man_sys.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Collection</a></li>
@@ -37,7 +38,7 @@
                             <li><a href="#">Help</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Books</a></li>
+                    <li><a href="books.html">Books</a></li>
                     <li class="active"><a href="#">About</a></li>
                     <li>
                         <a href="#"><input type="text" button type="button" class="btn btn-default">
@@ -48,8 +49,9 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>library@gmail.com</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li id="sign-up"><a href="sign_up.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li id="login" class="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li id="name"><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
                 </ul>
             </div>
         </nav>

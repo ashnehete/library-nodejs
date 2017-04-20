@@ -4,23 +4,6 @@ var router = express.Router();
 
 var User = require('./../models/User');
 
-/*
-router.get('/', function (req, res) {
-    var query = req.query;
-    var cb = resCb.bind({res: res});
-    if (query.hasOwnProperty('username'))
-        User.findByUsername(query.username, cb);
-    else if (query.hasOwnProperty('name'))
-        User.findByName(query.name, cb);
-    else
-        User.find(cb);
-});
-
-router.get('/:id', function (req, res) {
-    User.findById(req.params.id, resCb.bind({res: res}));
-});
-*/
-
 router.post('/login', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;

@@ -6,11 +6,12 @@ var Issue = require('./../models/Issue');
 
 router.get('/', function (req, res) {
     var query = req.query;
+    console.log(query);
     var cb = resCb.bind({res: res});
     if (query.hasOwnProperty('user_id'))
-        Issue.findByTitle(query.user_id, cb);
+        Issue.findByUser(query.user_id, cb);
     else if (query.hasOwnProperty('book_id'))
-        Issue.findByAuthor(query.book_id, cb);
+        Issue.findByBook(query.book_id, cb);
     else
         Issue.find(cb);
 });
@@ -50,6 +51,7 @@ router.post('/:id', function (req, res) {
 
 function resCb(err, data) {
     if (err) this.res.send(err);
+    console.log(data);
     this.res.json(data);
 }
 

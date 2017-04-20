@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>Signup</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -51,9 +51,15 @@
         }
     </style>
     <script type="text/javascript">
-        function validateform(myform) {
+        if (sessionStorage.getItem('id')) {
+            location.assign('/index.html');
+        }
+        function validateform() {
+            var name = document.myform.name.value;
             var username = document.myform.username.value;
             var password = document.myform.password.value;
+            var cpassword = document.myform.cpassword.value;
+            var ck_name = /^[A-Za-z_]{2,20}$/;
             var ck_username = /^[a-z0-9_]{3,20}$/;
             var ck_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
             if (!ck_username.test(username)) {
@@ -64,8 +70,17 @@
                 alert("enter valid password");
                 return false;
             }
-            else
-                return true;
+            else if (password != cpassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            else {
+                $.post('user/register/', {
+                    name: name,
+                    username: username,
+                    password: password
+                });
+            }
         }
     </script>
 </head>
@@ -76,7 +91,7 @@
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <li><img src="img/liblogo.jpg" width="230" height="64"></li>
-                    <li><a href="lib_man_sys.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Services <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Collection</a></li>
@@ -84,8 +99,8 @@
                             <li><a href="#">Help</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li>
                         <a href="#"><input type="text" button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-search"></span> Search
@@ -95,24 +110,30 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>library@gmail.com</a></li>
-                    <li><a href="sign in.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li class="active"><a href="login.htm"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li class="active"><a href="sign_up.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </nav>
         <br><br><br><br><br><br>
         <div align="center">
-            <h1 class="font">Login</h1>
+            <h1 class="font">Sign Up</h1>
         </div>
         <div align="center">
-            <form name="myform" method="post" onsubmit="return validateform()">
-                <input type="text" placeholder="Username" name="username" class="boxstyle" required="">
+            <form name="myform" onsubmit="return validateform()">
+                <input type="text" placeholder="Name" name="name" class="boxstyle">
+                <br>
+                <br>
+                <input type="text" placeholder="Username" name="username" class="boxstyle">
                 <br>
                 <br>
                 <input type="password" placeholder="Password" name="password" class="boxstyle">
                 <br>
                 <br>
-                <input type="submit" name="submit" class="submitbox">
+                <input type="password" placeholder="Confirm Password" name="cpassword" class="boxstyle">
+                <br>
+                <br>
+                <input type="submit" class="submitbox">
             </form>
         </div>
     </header>

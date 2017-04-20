@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var express = require('express');
+var serveStatic = require('serve-static');
 var app = express();
 
 // Attach body parser
@@ -15,9 +16,7 @@ var issue_routes = require('./routes/issue_routes');
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/library');
 
-app.get('/', function (req, res) {
-    res.send("Something")
-});
+app.use(serveStatic('public', {'index': ['index.html']}));
 
 app.use('/book', book_routes);
 app.use('/user', user_routes);
